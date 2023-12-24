@@ -48,10 +48,14 @@ subprojects {
     }
 
     repositories {
+        mavenCentral()
         mavenLocal()
-        maven("https://repo.glowstone.net/repository/maven-public/")
-        maven("https://repo.glowstone.net/repository/snapshots/")
-        maven("https://repo.glowstone.net/repository/internal/")
+        maven("https://oss.sonatype.org/content/groups/public/")
+        maven("https://papermc.io/repo/repository/maven-public/")
+        maven("https://ci.emc.gs/nexus/content/groups/aikar/")
+        maven("https://repo.aikar.co/content/groups/aikar")
+        maven("https://repo.md-5.net/content/repositories/releases/")
+        maven("https://hub.spigotmc.org/nexus/content/groups/public/")
     }
 }
 
@@ -84,7 +88,7 @@ paperweight {
                 register("api") {
                     upstreamDir.set(paperDir.dir("Paper-API"))
                     patchDir.set(layout.projectDirectory.dir("Paper-API-Patches"))
-                    outputDir.set(layout.projectDirectory.dir("glowkit"))
+                    outputDir.set(layout.projectDirectory.dir("krabsmcbukkit"))
                     importMcDev.set(false)
                 }
             }
@@ -95,9 +99,8 @@ paperweight {
 allprojects {
     publishing {
         repositories {
-            maven("https://repo.glowstone.net/content/repositories/snapshots/") {
-                name = "glowstone"
-                credentials(PasswordCredentials::class)
+            maven {
+                name = rootProject.name
             }
         }
     }
@@ -109,7 +112,7 @@ tasks.register("printMinecraftVersion") {
     }
 }
 
-tasks.register("printGlowkitVersion") {
+tasks.register("printkrabsmcbukkitVersion") {
     doLast {
         println(project.version)
     }
