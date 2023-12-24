@@ -29,6 +29,6 @@ if (!file(".git").exists()) {
     error(errorText)
 }
 
-rootProject.name = "glowkit"
+rootProject.name = "krabsmcbukkit"
 
-include("glowkit")
+include("krabsmcbukkit")
