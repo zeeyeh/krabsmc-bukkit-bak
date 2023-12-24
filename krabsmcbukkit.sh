@@ -50,17 +50,17 @@ case "$1" in
         cd "$basedir"
     ;;
     "a" | "api")
-        cd "$basedir/glowkit"
+        cd "$basedir/krabsmcbukkit"
     ;;
     "c" | "clean")
-        rm -rf "$basedir/glowkit"
+        rm -rf "$basedir/krabsmcbukkit"
         rm -rf "$basedir/work"
         ./gradlew clean
         ./gradlew cleanCache
         echo "Cleaned build files"
     ;;
     "con" | "continue")
-        cd "$basedir/glowkit"
+        cd "$basedir/krabsmcbukkit"
         (
             set -e
 
@@ -74,7 +74,7 @@ case "$1" in
         cd "$basedir"
     ;;
     "e" | "edit")
-        cd "$basedir/glowkit"
+        cd "$basedir/krabsmcbukkit"
         (
             set -e
 
@@ -85,7 +85,7 @@ case "$1" in
     ;;
     "setup")
         if [[ -f "$RCPATH" ]] ; then
-            NAME="glowkit"
+            NAME="krabsmcbukkit"
             if [[ ! -z "${2+x}" ]] ; then
                 NAME="$2"
             fi
