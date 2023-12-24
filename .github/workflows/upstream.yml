@@ -40,7 +40,7 @@ jobs:
             ${{ runner.os }}-gradle-
 
       - name: Update Upstream
-        run: ./glowkit.sh u
+        run: ./krabsmcbukkit.sh u
 
       - name: Cleanup Gradle Cache
         # Remove some files from the Gradle cache, so they aren't cached by GitHub Actions.
@@ -50,7 +50,7 @@ jobs:
           rm -f ~/.gradle/caches/modules-2/gc.properties
 
       - name: Commit Upstream
-        run: ./glowkit.sh upc
+        run: ./krabsmcbukkit.sh upc
 
       - name: Push
         run: git push
