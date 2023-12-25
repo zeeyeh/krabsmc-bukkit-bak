@@ -24,8 +24,8 @@ jobs:
 
       - name: Configure Git
         run: |
-          git config --global user.email "mastercoms@tuta.io"
-          git config --global user.name "mastercoms"
+          git config --global user.email "zeeyeh@163.com"
+          git config --global user.name "zeeyeh"
 
       - name: Cache gradle
         uses: actions/cache@v3

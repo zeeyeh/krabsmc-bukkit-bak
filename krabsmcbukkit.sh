@@ -78,9 +78,9 @@ case "$1" in
         (
             set -e
 
-            glowkitstash
+            krabsbukkitstash
             $gitcmd rebase -i upstream/master
-            glowkitunstash
+            krabsbukkitunstash
         )
     ;;
     "setup")
@@ -91,33 +91,33 @@ case "$1" in
             fi
             (grep "alias $NAME=" "$RCPATH" > /dev/null) && (sed -i "s|alias $NAME=.*|alias $NAME='. $SOURCE'|g" "$RCPATH") || (echo "alias $NAME='. $SOURCE'" >> "$RCPATH")
             alias "$NAME=. $SOURCE"
-            echo "You can now just type '$NAME' at any time to access the glowkit tool."
+            echo "You can now just type '$NAME' at any time to access the krabsbukkit tool."
         else
-          echo "We were unable to setup the glowkit build tool alias: $RCPATH is missing"
+          echo "We were unable to setup the krabsbukkit build tool alias: $RCPATH is missing"
         fi
     ;;
     *)
-        echo "Glowkit build tool command. This provides a variety of commands to build and manage the Glowkit build"
+        echo "krabsbukkit build tool command. This provides a variety of commands to build and manage the krabsbukkit build"
         echo "environment. For all of the functionality of this command to be available, you must first run the"
         echo "'setup' command. View below for details. For essential building and patching, you do not need to do the setup."
         echo ""
         echo " Normal commands:"
-        echo "  * u, up, upstream     | Updates the submodules used by Glowkit to their latest upstream versions."
+        echo "  * u, up, upstream     | Updates the submodules used by krabsbukkit to their latest upstream versions."
         echo "  * upc, upstreamcommit | Creates the correctly-formatted upstream commit after updating upstream."
         echo "  * c, clean            | Removes all generated files."
         echo ""
         echo " These commands require the setup command before use:"
         echo "  * r, root           | Change directory to the root of the project."
-        echo "  * a. api            | Move to the glowkit directory."
+        echo "  * a. api            | Move to the krabsbukkit directory."
         echo "  * e, edit           | Use to edit a specific patch."
         echo "  * con, continue     | After the changes have been made with \"edit\", finish and rebuild patches."
         echo ""
         echo "  * setup             | Add an alias to $RCPATH to allow full functionality of this script. Run as:"
-        echo "                      |     . ./glowkit.sh setup"
-        echo "                      | After you run this command you'll be able to just run 'glowkit' from anywhere."
-        echo "                      | The default name for the resulting alias is 'glowkit', you can give an argument to override"
+        echo "                      |     . ./krabsbukkit.sh setup"
+        echo "                      | After you run this command you'll be able to just run 'krabsbukkit' from anywhere."
+        echo "                      | The default name for the resulting alias is 'krabsbukkit', you can give an argument to override"
         echo "                      | this default, such as:"
-        echo "                      |     . ./glowkit.sh setup example"
+        echo "                      |     . ./krabsbukkit.sh setup example"
         echo "                      | Which will allow you to run 'example' instead."
     ;;
 esac
@@ -127,8 +127,8 @@ unset SOURCE
 unset basedir
 unset -f color
 unset -f colorend
-unset -f glowkitstash
-unset -f glowkitunstash
+unset -f krabsbukkitstash
+unset -f krabsbukkitunstash
 if [[ "$failed" == "1" ]]; then
 	unset failed
 	false
